@@ -23,8 +23,14 @@
       </div>
     </div>
 
+    <div class="flex flex-row flex-wrap gap-6 justify-evenly" v-if="isLoad">
+      <PostCardSkeleton /> <PostCardSkeleton />
+      <PostCardSkeleton /> <PostCardSkeleton />
+      <PostCardSkeleton /> <PostCardSkeleton />
+      <PostCardSkeleton /> <PostCardSkeleton />
+    </div>
     <!-- content post -->
-    <div class="flex flex-row flex-wrap gap-6 justify-evenly" v-if="postList">
+    <div class="flex flex-row flex-wrap gap-6 justify-evenly" v-else-if="postList">
       <div v-for="post in postList.data" :key="post.id" class="flex-1 md:flex-none">
         <PostCard :post="post" @click-tag="clickTag" />
       </div>
@@ -57,6 +63,7 @@ import { onMounted, ref } from 'vue';
 import axios from 'axios'
 import PostCard from '../components/PostCard.vue';
 import Paginate from "vuejs-paginate-next";
+import PostCardSkeleton from '../components/PostCardSkeleton.vue';
 
 // env variable
 const url = import.meta.env.VITE_URL

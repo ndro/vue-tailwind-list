@@ -24,10 +24,12 @@
     </div>
 
     <div class="flex flex-row flex-wrap gap-6 justify-evenly" v-if="isLoad">
-      <PostCardSkeleton /> <PostCardSkeleton />
-      <PostCardSkeleton /> <PostCardSkeleton />
-      <PostCardSkeleton /> <PostCardSkeleton />
-      <PostCardSkeleton /> <PostCardSkeleton />
+      <!-- display only 1 skeleton on mobile view -->
+      <PostCardSkeleton />
+      <PostCardSkeleton class="hidden md:block"/>
+      <PostCardSkeleton class="hidden md:block" /> <PostCardSkeleton class="hidden md:block"/>
+      <PostCardSkeleton class="hidden md:block" /> <PostCardSkeleton class="hidden md:block"/>
+      <PostCardSkeleton class="hidden md:block" /> <PostCardSkeleton class="hidden md:block"/>
     </div>
     <!-- content post -->
     <div class="flex flex-row flex-wrap gap-6 justify-evenly" v-else-if="postList">

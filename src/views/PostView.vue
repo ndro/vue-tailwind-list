@@ -26,7 +26,7 @@
     <!-- content post -->
     <div class="flex flex-row flex-wrap gap-6 justify-evenly" v-if="postList">
       <div v-for="post in postList.data" :key="post.id" class="flex-1 md:flex-none">
-        <PostCard :post="post" />
+        <PostCard :post="post" @click-tag="clickTag" />
       </div>
     </div>
 
@@ -114,6 +114,13 @@ const getPostList = () => {
     isReset.value = false
     return;
   }, 500);
+}
+
+// get post by click tag
+const clickTag = (tag) => {
+  singleTag.value = tag;
+  resetPage()
+  getPostList()
 }
 
 // pagination

@@ -23,10 +23,18 @@
       </div>
     </div>
 
+    <div class="flex flex-row flex-wrap gap-6 justify-evenly" v-if="isLoad">
+      <!-- display only 1 skeleton on mobile view -->
+      <PostCardSkeleton />
+      <PostCardSkeleton class="hidden md:block"/>
+      <PostCardSkeleton class="hidden md:block" /> <PostCardSkeleton class="hidden md:block"/>
+      <PostCardSkeleton class="hidden md:block" /> <PostCardSkeleton class="hidden md:block"/>
+      <PostCardSkeleton class="hidden md:block" /> <PostCardSkeleton class="hidden md:block"/>
+    </div>
     <!-- content post -->
-    <div class="flex flex-row flex-wrap gap-6 justify-evenly" v-if="postList">
+    <div class="flex flex-row flex-wrap gap-6 justify-evenly" v-else-if="postList">
       <div v-for="post in postList.data" :key="post.id" class="flex-1 md:flex-none">
-        <PostCard :post="post" />
+        <PostCard :post="post" @click-tag="clickTag" />
       </div>
     </div>
 
@@ -57,6 +65,7 @@ import { onMounted, ref } from 'vue';
 import axios from 'axios'
 import PostCard from '../components/PostCard.vue';
 import Paginate from "vuejs-paginate-next";
+import PostCardSkeleton from '../components/PostCardSkeleton.vue';
 
 // env variable
 const url = import.meta.env.VITE_URL
@@ -114,6 +123,13 @@ const getPostList = () => {
     isReset.value = false
     return;
   }, 500);
+}
+
+// get post by click tag
+const clickTag = (tag) => {
+  singleTag.value = tag;
+  resetPage()
+  getPostList()
 }
 
 // pagination

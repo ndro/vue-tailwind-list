@@ -32,16 +32,21 @@
       </p>
 
       <!-- tag post -->
-      <div class="text-sm text-gray-800 truncate">
-        <span v-for="(tag, index) in post.tags" :key="index">
-          #{{ tag }}
-        </span>
+      <div class="text-sm text-gray-800 truncate cursor-pointer">
+        <button
+          v-for="(tag, index) in post.tags" :key="index"
+          class="text-xs text-indigo-500 focus:outline-none hover:underline"
+          @click="$emit('click-tag', tag)"
+        >
+        #{{ tag }}&nbsp;
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+defineEmits(['click-tag'])
 defineProps({
   post: {
     type: Object,

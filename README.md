@@ -1,14 +1,18 @@
-#  vue-tailwind-user-card-list
+#  vue-tailwind-list
 
-This template should help get you started developing with Vue 3 in Vite.
+Before running the application, you should edit `.env.example` to `.env` and change `VITE_APP_ID` with your `app-id`
+
+## Built with
+
+- [Vue Js](https://vuejs.org/) - JS library
+  - [Axios](https://github.com/axios/axios) - HTTP Client
+  - [Vue Js Paginate Next](https://github.com/cloudeep/vuejs-paginate-next) - Pagination for Vue 3
+- [Tailwind CSS](https://tailwindcss.com/) - For styles
+- [Vite](https://vitejs.dev/) - Build Tool
 
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur)
 
 ## Project Setup
 
